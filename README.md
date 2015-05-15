@@ -9,7 +9,8 @@
 
 [ boot.img-Clean.sh ]
 - Delete all temporary files
-[ boot.img-Compile.sh ]
+
+*[ boot.img-Compile.sh ]
 - Rebuild the logo.rle
 - Rebuild the cpios
 - Rebuild the ramdisk.img
