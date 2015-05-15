@@ -1,5 +1,13 @@
 # Android - Xperia SP - boot.img Editor
 
+These shell scripts are meant to help you
+decompile and recompile the complete boot.img kernel.
+
+They are prebuilt for the Xperia SP CM12.1 kernels
+and it is recommended that you use Ubuntu (15.04). 
+
+
+
 ### [ boot.img-Decompile.sh ]
 - Extract the boot.img
 - Extract the ramdisk.img
