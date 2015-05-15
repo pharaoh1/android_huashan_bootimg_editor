@@ -1,7 +1,7 @@
 # Android - Xperia SP - boot.img Editor
-[Created by Adrian DC @ XDA-Developers](http://forum.xda-developers.com/member.php?u=2233641)
+[Created by Adrian DC @XDA-Developers](http://forum.xda-developers.com/member.php?u=2233641)
 <br />
-[More on DevGates - boot.img Editor](http://adriandc.comeze.com/xperiaspbootimg.html)
+[More about boot.img Editor @DevGates](http://adriandc.comeze.com/xperiaspbootimg.html)
 
 These shell scripts are meant to help you<br />
 decompile and recompile the complete boot.img kernel.
