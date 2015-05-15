@@ -1,9 +1,10 @@
 # Android - Xperia SP - boot.img Editor
+[Created by Adrian DC @ XDA-Developers](http://forum.xda-developers.com/member.php?u=2233641)
 
-These shell scripts are meant to help you
+These shell scripts are meant to help you<br />
 decompile and recompile the complete boot.img kernel.
 
-They are prebuilt for the Xperia SP CM12.1 kernels
+They are prebuilt for the Xperia SP CM12.1 kernels<br />
 and it is recommended that you use Ubuntu (15.04). 
 
 
