@@ -29,4 +29,3 @@ and it is recommended that you use Ubuntu (15.04).
 
 ### [ boot.img-Clean.sh ]
 - Delete all temporary files
-- 
