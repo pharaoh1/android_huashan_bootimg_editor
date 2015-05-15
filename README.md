@@ -7,9 +7,6 @@
 - Extract the ramdisk.recovery.cpio
 - Export the logo.rle to logo.png
 
-### [ boot.img-Clean.sh ]
-- Delete all temporary files
-
 ### [ boot.img-Compile.sh ]
 - Rebuild the logo.rle
 - Rebuild the cpios
@@ -18,3 +15,6 @@
 
 ### [ boot.img-Dependencies.sh ]
 - Install and build tools
+
+### [ boot.img-Clean.sh ]
+- Delete all temporary files
