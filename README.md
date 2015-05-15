@@ -1,4 +1,4 @@
-# Android - Xperia SP - boot.img Editor - v1.1
+# Android - Xperia SP - boot.img Editor v1.1
 [Created by Adrian DC @XDA-Developers](http://forum.xda-developers.com/member.php?u=2233641)
 <br />
 [More about boot.img Editor @DevGates](http://adriandc.comeze.com/xperiaspbootimg.html)
