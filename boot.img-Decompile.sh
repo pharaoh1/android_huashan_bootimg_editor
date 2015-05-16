@@ -36,6 +36,16 @@ if [ -d ./workspace ]; then rm -r ./workspace; fi;
 mkdir ./workspace;
 mkdir ./workspace/ramdisk;
 
+# If the boot.img hasn't been extracted correctly
+cd "$workDir/";
+if [ ! -f ./0 ] || [ ! -f ./1 ] || [ ! -f ./2 ] || [ ! -f ./3 ]; then
+  echo "";
+  echo " [ The boot.img is corrupted, extraction failed ]";
+  echo "";
+  read key;
+  exit;
+fi;
+
 # Reorganize and rename the extracted files
 mv -f ./0 ./workspace/kernel;
 mv -f ./1 ./workspace/ramdisk.img;
