@@ -9,7 +9,7 @@ fi;
 
 # Folder cleaning
 echo "";
-echo " [ Cleaning the workspace ]";
+echo " [ Flashing boot-new.img ]";
 echo "";
 cd ./kernel/;
 sudo fastboot flash boot boot-new.img;
