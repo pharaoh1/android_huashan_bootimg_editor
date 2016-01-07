@@ -82,7 +82,7 @@ if [ $workExtractCpio -eq 1 ]; then
 fi;
 
 # Extract the ramdisk logo image
-if [ $workExtractLogo -eq 1 ]; then
+if [ $workExtractLogo -eq 1 ] && [ -z $1 ]; then
   cd "$workDir/";
   echo ""
   echo " [ Converting the logo.rle ]";

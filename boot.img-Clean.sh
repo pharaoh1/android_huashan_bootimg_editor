@@ -12,5 +12,7 @@ if [ -f ./kernel/boot-new.img ]; then rm -f -v ./kernel/boot-new.img; fi;
 echo "";
 echo " [ Done ]";
 echo "";
-read key;
+if [ -z $1 ]; then
+  read key;
+fi;
 

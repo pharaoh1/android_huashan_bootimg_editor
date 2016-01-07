@@ -12,6 +12,7 @@ echo "";
 echo " [ Flashing boot-new.img ]";
 echo "";
 cd ./kernel/;
+sudo adb reboot bootloader;
 sudo fastboot flash boot boot-new.img;
 sudo fastboot reboot;
 
@@ -19,5 +20,7 @@ sudo fastboot reboot;
 echo "";
 echo " [ Done ]";
 echo "";
-read key;
+if [ -z $1 ]; then
+  read key;
+fi;
 

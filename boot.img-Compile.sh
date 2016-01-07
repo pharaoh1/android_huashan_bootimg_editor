@@ -31,6 +31,14 @@ if [ -d ./workspace/ramdisk ]; then
 
   fi;
 
+  # If the boot logo is missing
+  if [ ! -f ./workspace/ramdisk/logo.rle ]; then
+    echo "";
+    echo " [ Error: logo.rle missing ]";
+    echo "";
+    exit;
+  fi;
+
   # If the ramdisk cpios have to be compiled
   if [ -d ./workspace/ramdisk/sbin/ramdiskcpio ] && [ -d ./workspace/ramdisk/sbin/ramdiskrecoverycpio ]; then
 
@@ -105,5 +113,7 @@ mv ./workspace/boot-new.elf ./kernel/boot-new.img;
 echo "";
 echo " [ Done ]";
 echo "";
-read key;
+if [ -z $1 ]; then
+  read key;
+fi;
 
