@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # boot.img missing
 if [ ! -f ./kernel/boot-new.img ]; then
   echo "";

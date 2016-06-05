@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Script Initiation
 workDir=$(pwd);
 workExtractCpio=1;
@@ -34,6 +36,7 @@ if [ ! -d ./kernel ]; then mkdir ./kernel; fi;
 # Extract the boot.img
 echo "";
 echo " [ Extracting boot.img ]";
+rm -f ./0 ./1 ./2 ./3 ./4;
 cp ./kernel/boot.img ./boot.elf;
 7z e ./boot.elf;
 rm ./boot.elf;
@@ -43,8 +46,37 @@ if [ -d ./workspace ]; then rm -r ./workspace; fi;
 mkdir ./workspace;
 mkdir ./workspace/ramdisk;
 
+# Attempt a bootimage proper shrink based on ELF header
+if [ ! -f ./0 ] || [ ! -f ./1 ] || [ ! -f ./2 ] || [ ! -f ./3 ]; then
+  echo "";
+  echo " [ The boot.img is unreadable, attempting shrink ]";
+  echo "";
+  cmdaddr=$(od -j 152 -N 4 -tx4 -An ./kernel/boot.img \
+          | cut -c 2-9);
+  cmdsize=$(od -j 164 -N 4 -tx4 -An ./kernel/boot.img \
+          | cut -c 2-9);
+  bootsize=$((16#$cmdaddr+16#$cmdsize));
+  echo "   Bootimage size found : $bootsize";
+  echo "";
+  dd if=./kernel/boot.img of=./boot.elf skip=0 bs=$bootsize count=1;
+  7z e ./boot.elf;
+  rm ./boot.elf;
+fi;
+
+# Attempt a bootimage manual shrink based on user input
+if [ ! -f ./0 ] || [ ! -f ./1 ] || [ ! -f ./2 ] || [ ! -f ./3 ]; then
+  echo "";
+  echo " [ The boot.img is unreadable, attempting manual shrink ]";
+  echo "";
+  printf "   Bootimage size (refer to the cmdline end) : ";
+  read bootsize;
+  echo "";
+  dd if=./kernel/boot.img of=./boot.elf skip=0 bs=$bootsize count=1;
+  7z e ./boot.elf;
+  rm ./boot.elf;
+fi;
+
 # If the boot.img hasn't been extracted correctly
-cd "$workDir/";
 if [ ! -f ./0 ] || [ ! -f ./1 ] || [ ! -f ./2 ] || [ ! -f ./3 ]; then
   echo "";
   echo " [ The boot.img is corrupted, extraction failed ]";
@@ -58,6 +90,7 @@ mv -f ./0 ./workspace/kernel;
 mv -f ./1 ./workspace/ramdisk.img;
 mv -f ./2 ./workspace/RPM.bin;
 mv -f ./3 ./workspace/cmdline.txt;
+rm -f ./4;
 
 # Extract the ramdisk image
 echo "";
@@ -104,5 +137,7 @@ fi;
 echo "";
 echo " [ Done ]";
 echo "";
-read key;
+if [ -z "$1" ]; then
+  read key;
+fi;
 

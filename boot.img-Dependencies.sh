@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # apt-get dependencies
 sudo apt-get install gzip;
 sudo apt-get install p7zip-full;

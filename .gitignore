@@ -1,5 +1,7 @@
 kernel/boot.img
+kernel/boot-new.img
 tools/5652rgb
 tools/dependencies.compiled
 tools/rgb2565
+workspace
 

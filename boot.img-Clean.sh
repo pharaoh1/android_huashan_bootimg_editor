@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Folder cleaning
 echo "";
 echo " [ Cleaning the workspace ]";
