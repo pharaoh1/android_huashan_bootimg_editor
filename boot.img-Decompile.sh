@@ -6,10 +6,17 @@ workExtractLogo=1;
 # Dependencies missing
 if [ ! -f ./tools/dependencies.compiled ]; then
   echo "";
-  echo " [ Please run the Dependencies.sh script ]";
+  echo " [ Running the Dependencies.sh script ]";
   echo "";
-  read key;
-  exit;
+  chmod +x ./boot.img-Dependencies.sh;
+  ./boot.img-Dependencies.sh "inline";
+  if [ ! -f ./tools/dependencies.compiled ]; then
+    echo "";
+    echo " [ Please run the Dependencies.sh script ]";
+    echo "";
+    read key;
+    exit;
+  fi;
 fi;
 
 # boot.img missing

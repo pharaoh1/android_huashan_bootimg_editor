@@ -13,5 +13,7 @@ echo "" > ./tools/dependencies.compiled;
 echo "";
 echo " [ Done ]";
 echo "";
-read key;
+if [ -z "$1" ]; then
+  read key;
+fi;
 
