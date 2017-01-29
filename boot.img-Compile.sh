@@ -52,9 +52,9 @@ if [ -d ./workspace/ramdisk ]; then
     if [ -f ./ramdisk.cpio ]; then rm -f ./ramdisk.cpio; fi;
     if [ -f ./ramdisk-recovery.cpio ]; then rm -f ./ramdisk-recovery.cpio; fi;
     cd "$workDir/workspace/ramdisk/sbin/ramdiskcpio/";
-    find . | cpio -o -H newc -O ../ramdisk.cpio;
+    find . | cpio -o -R 0:0 -H newc -O ../ramdisk.cpio;
     cd "$workDir/workspace/ramdisk/sbin/ramdiskrecoverycpio/";
-    find . | cpio -o -H newc -O ../ramdisk-recovery.cpio;
+    find . | cpio -o -R 0:0 -H newc -O ../ramdisk-recovery.cpio;
 
     # Move the work ramdisk files
     cd "$workDir/";
@@ -69,8 +69,8 @@ if [ -d ./workspace/ramdisk ]; then
   echo "";
   cd "$workDir/workspace/ramdisk/";
   if [ -f ../ramdisk.img ]; then rm ../ramdisk.img; fi;
-  find . | cpio -o -H newc -O ../ramdisk.cpio;
-  gzip -9 ../ramdisk.cpio;
+  find . | cpio -o -R 0:0 -H newc -O ../ramdisk.cpio;
+  gzip -9 -n ../ramdisk.cpio;
   mv ../ramdisk.cpio.gz ../ramdisk.img;
 
   # Post ramdisk reorganization
